@@ -1,0 +1,70 @@
+interface CartLine {
+  id: string;
+  merchandise: {
+    product: {
+      tags: string[];
+    };
+  };
+  quantity: number;
+}
+
+interface Cart {
+  lines: CartLine[];
+}
+
+export function run({ cart }: any): any {
+  
+  console.log('line.merchandise.product.tags');
+  const updatedLines: CartLine[] = [];
+  let combinedQuantity = 0;
+  let combinedLineId: string | null = null;
+
+  for (const line of cart.lines) {
+    
+    if (line.merchandise.product.hasAnyTag) {
+      combinedQuantity += line.quantity;
+      if (!combinedLineId) {
+        combinedLineId = line.id;
+      }
+    } else {
+      updatedLines.push(line);
+    }
+  }
+
+  // Add the combined "super" product if any were found
+  if (combinedLineId && combinedQuantity > 0) {
+    updatedLines.push({
+      id: combinedLineId,
+      merchandise: {
+        product: {
+          tags: ["super"],
+        },
+      },
+      quantity: combinedQuantity,
+    });
+  }
+
+  // Prepare the cart operations
+  const cartOperations = updatedLines.map((line) => ({
+    setQuantity: {
+      cartLineId: line.id,
+      quantity: line.quantity,
+    },
+  }));
+
+  return {
+    operations: cartOperations,
+  };
+}
+
+
+
+
+// Second test
+ for(let i= 0; i < cart.lines.length; i++){ 
+
+    if (cart.lines[i].merchandise.product.hasAnyTag) {     
+      cart.lines[i].quantity += 100;
+      console.log(cart.lines[i].quantity);
+    }
+  }

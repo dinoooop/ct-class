@@ -30,6 +30,8 @@
   "dependencies": {
     "@shopify/shopify_function": "0.1.0",
     "@shopify/shopify-api": "^11.4.1",
-    "javy": "0.1.1"
+    "fs": "^0.0.1-security",
+    "javy": "0.1.1",
+    "path": "^0.12.7"
   }
 }

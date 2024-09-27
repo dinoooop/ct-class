@@ -3,7 +3,7 @@
 client_id = "abdf76f1998024929ca3dba2118654ad"
 name = "gemni"
 handle = "gemni"
-application_url = "https://solving-new-function-modified.trycloudflare.com"
+application_url = "https://blog-contributing-perception-lounge.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://solving-new-function-modified.trycloudflare.com/auth/callback",
-  "https://solving-new-function-modified.trycloudflare.com/auth/shopify/callback",
-  "https://solving-new-function-modified.trycloudflare.com/api/auth/callback"
+  "https://blog-contributing-perception-lounge.trycloudflare.com/auth/callback",
+  "https://blog-contributing-perception-lounge.trycloudflare.com/auth/shopify/callback",
+  "https://blog-contributing-perception-lounge.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

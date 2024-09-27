@@ -3,6 +3,17 @@ query RunInput {
     lines {
       id
       quantity
+      merchandise {
+        __typename
+        ... on ProductVariant{
+          id
+          product{
+            id
+            title
+            hasAnyTag(tags:["super"])
+          }
+        }
+      }
     }
   }
 }
